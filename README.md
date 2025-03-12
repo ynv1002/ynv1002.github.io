@@ -1,5 +1,5 @@
 # ynv1002.github.io
-# 🏡 Vacation Rentals Data Analysis DOOP
+# 🏡 Vacation Rentals Data Analysis
 
 **🔗 Live Site:** [ynv1002.github.io](https://ynv1002.github.io/)
 
