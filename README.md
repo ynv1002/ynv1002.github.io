@@ -4,7 +4,7 @@
 **🔗 Live Site:** [ynv1002.github.io](https://ynv1002.github.io/)
 
 ## 📌 Project Overview
-This project analyzes vacation rentals using data from [Data.gov](https://catalog.data.gov/dataset/vacation-rentals-hotels-bb-short-term-rentals-etc) and [data.nola.gov](https://data.nola.gov/Housing-Land-Use-and-Blight/Short-Term-Rental-Permit-Applications/en36-xvxg/about_data).
+This project analyzes vacation rentals using data from [Data.gov](https://catalog.data.gov/dataset/vacation-rentals-hotels-bb-short-term-rentals-etc) and [nola.gov](https://data.nola.gov/Housing-Land-Use-and-Blight/Short-Term-Rental-Permit-Applications/en36-xvxg/about_data).
 
 ## 🔍 Research Questions
 - What types of vacation rentals are most common?
