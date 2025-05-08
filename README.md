@@ -1,28 +1,82 @@
-# Short-Term Rentals & Crime Analysis in New Orleans
+# 🏠 Short-Term Rentals & Crime Analysis in New Orleans
 
 **Team Members:** Yaniv Naggar & Nick Chvany  
-**GitHub Pages Website:** [ynv1002.github.io](https://ynv1002.github.io)  
+**GitHub Pages Website:** [ynv1002.github.io](https://ynv1002.github.io)
 
-## Project Overview
-This project explores the relationship between **short-term rentals (STRs) and crime rates in New Orleans**. As STRs have become more popular, concerns about **neighborhood safety and affordability** have grown. This analysis investigates **whether high-density STR areas correlate with increased crime rates** and examines **factors that impact STR permit approvals**.
+---
 
-## Research Questions
-1. **Do high-density STR areas experience more crime?**
-2. **Are STR applications more likely to be denied in high-crime areas?**
-3. **What factors influence STR application approvals?**
+## 📌 Project Overview
 
-## Data Sources
-- **[Short-Term Rentals Data](https://catalog.data.gov/dataset/vacation-rentals-hotels-bb-short-term-rentals-etc)** (Location, rental type, bedroom & guest limits)
-- **[STR License Applications](https://data.nola.gov/Housing-Land-Use-and-Blight/Map-of-Short-Term-Rental-License-Applications/j5u3-2ueh)** (Approval status, zoning details)
-- **[New Orleans Police Incident Reports](https://data.nola.gov/Public-Safety-and-Preparedness/Calls-for-Service-2025/4xwx-sfte/about_data)** (Crime type, location, response times)
+This project explores the relationship between short-term rental (STR) density and crime rates in New Orleans. With the city’s evolving STR regulations and growing concerns over housing and safety, our goal is to analyze whether areas with more STRs are associated with increased incidents of crime.
 
-## Key Findings
-- **23.94% of STR applications were denied** (7,987 out of 33,364), showing that STR regulations are strict.
-- **9.57% of STR applications are still pending** (3,194), indicating a large backlog in processing.
-- **144 STR permits were revoked**, meaning compliance violations were a factor for some STRs.
-- **Average Bedroom & Guest Limits:** The average STR has **X bedrooms** and allows **Y guests** (*pending confirmation*).
+---
 
-## Next Steps
-- Merge STR and crime datasets for deeper analysis.
-- Explore time-based crime trends before & after **STR policy changes**.
-- Create **heatmaps & regression models** to better visualize STR density & crime.
+## ❓ Research Questions
+
+- Do high-density STR areas experience more crime?
+- Are STR applications more likely to be denied in high-crime areas?
+- Can we build a model to predict high-crime zones based on STR features?
+
+---
+
+## 🗂️ Data Sources
+
+- **Short-Term Rental License Applications**  
+  [Data Source](https://data.nola.gov/) — Permit status, type, and owner/zoning details.
+
+- **New Orleans Police Incident Reports (2025)**  
+  [Data Source](https://data.nola.gov/) — Incident location, crime type, and timestamps.
+
+---
+
+## 🔍 Key Findings
+
+- **High Denial Rate:** 23.94% of STR applications were denied.
+- **Large Backlog:** 9.57% of STR applications remain pending.
+- **Revocations:** 144 permits were revoked, suggesting enforcement of violations.
+- **Density & Crime Correlation:**  
+  Commercial STRs showed the strongest positive correlation (r = 0.82) with property crime density.
+
+---
+
+## 🧪 Methodology
+
+1. **Data Cleaning & Tidy Restructuring**
+   - Standardized text fields and removed bad coordinates.
+   - Filtered and created subsets: Active, Commercial, and Non-Commercial STRs.
+
+2. **Geospatial Aggregation**
+   - Rounded coordinates to 2 and 3 decimal precisions.
+   - Created `coord_key` for spatial merging of STR and crime datasets.
+
+3. **Visual Analysis**
+   - Used Folium maps and Seaborn scatterplots to examine STR clustering and crime trends.
+   - Stratified by STR type to isolate commercial effects.
+
+4. **Normalization**
+   - Applied MinMaxScaler to align units for modeling.
+
+5. **Modeling**
+   - **Model Type:** K-Nearest Neighbors (KNN)
+   - **Target:** Predict whether an STR is in a high-crime area (above 75th percentile).
+   - **Features:** STR density + commercial status
+   - **Performance:**  
+     - Accuracy: 97%  
+     - F1 Score (High Crime): 0.93  
+     - Confusion Matrix showed strong performance across both classes.
+
+---
+
+## 📈 Next Steps
+
+- Investigate temporal policy shifts and their impact on STR clustering.
+- Extend to predicting STR denials using zoning, crime, and density features.
+- Explore socioeconomic overlays (e.g., income, vacancy rates) for fairness analysis.
+
+---
+
+## 📚 References
+
+- New Orleans City Planning Commission. (2018). *Affordable Housing & STRs*.
+- WWNO (2025). *New STR Ordinance Summary*.
+- PMC (2021). *Short-Term Rentals and Crime: Boston Case Study*.
